@@ -205,6 +205,7 @@ button, input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .brand-logo {
@@ -218,6 +219,9 @@ button, input {
 }
 
 .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 36px;
@@ -316,54 +320,14 @@ button, input {
 .trustpilot-rating {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.88rem;
+  justify-content: center;
   margin-bottom: 48px;
 }
 
-.trustpilot-brand {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-weight: 700;
-  color: #121212;
-}
-
-.tp-star-logo {
-  width: 17px;
-  height: 17px;
-}
-
-.tp-text {
-  font-size: 0.94rem;
-}
-
-.tp-stars {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-}
-
-.tp-box {
-  width: 17px;
-  height: 17px;
-  background-color: var(--color-trustpilot);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1px;
-}
-
-.tp-box svg {
-  width: 11px;
-  height: 11px;
-  fill: #ffffff;
-}
-
-.tp-score {
-  font-weight: 700;
-  color: #121212;
-  font-size: 0.9rem;
+.tp-badge-img {
+  height: 19px;
+  width: auto;
+  display: block;
 }
 
 /* Hero 3D Perspective Graphic */
@@ -879,9 +843,9 @@ button, input {
 
 .real-people-layout {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .pill-badge-outline {
@@ -967,13 +931,13 @@ button, input {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .human-glow-bg {
   position: absolute;
-  width: 380px;
-  height: 380px;
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(208, 234, 5, 0.4) 0%, rgba(208, 234, 5, 0.1) 60%, transparent 80%);
   filter: blur(40px);
@@ -984,7 +948,7 @@ button, input {
 .human-graphic {
   position: relative;
   z-index: 2;
-  max-width: 480px;
+  max-width: 520px;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 15px 35px rgba(208, 234, 5, 0.25));
