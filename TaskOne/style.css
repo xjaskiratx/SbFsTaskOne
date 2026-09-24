@@ -1287,7 +1287,7 @@ button, input {
   font-weight: 700;
   color: #121212;
   letter-spacing: 0.08em;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   text-transform: uppercase;
@@ -1296,13 +1296,19 @@ button, input {
 .footer-nav {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
+}
+
+.footer-nav li {
+  line-height: 1.4;
 }
 
 .footer-nav a {
   font-size: 0.9rem;
   color: #444444;
   font-weight: 500;
+  display: inline-block;
+  transition: var(--transition);
 }
 
 .footer-nav a:hover {
@@ -1551,11 +1557,11 @@ button, input {
   }
   
   .footer-col {
-    padding-bottom: 8px;
+    padding-bottom: 0;
   }
 
   .footer-nav {
-    gap: 16px;
+    gap: 10px;
   }
   
   .brand-col {
