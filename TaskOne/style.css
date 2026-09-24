@@ -246,6 +246,14 @@ button, input {
 }
 
 /* --- Mobile Navigation Drawer & Hamburger --- */
+.mobile-menu-toggle-checkbox {
+  display: none;
+}
+
+body:has(.mobile-menu-toggle-checkbox:checked) {
+  overflow: hidden;
+}
+
 .mobile-menu-btn {
   display: none;
   background: transparent;
@@ -288,7 +296,7 @@ button, input {
   transition: opacity 0.3s ease;
 }
 
-.mobile-nav-backdrop.is-open {
+.mobile-menu-toggle-checkbox:checked ~ .mobile-nav-backdrop {
   opacity: 1;
   pointer-events: auto;
 }
@@ -310,7 +318,7 @@ button, input {
   overflow-y: auto;
 }
 
-.mobile-nav-drawer.is-open {
+.mobile-menu-toggle-checkbox:checked ~ .mobile-nav-drawer {
   transform: translateX(0);
 }
 
