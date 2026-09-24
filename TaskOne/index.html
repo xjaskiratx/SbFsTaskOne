@@ -23,11 +23,47 @@
         <a href="#categories" class="nav-link">Categories</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
-      <div class="header-action">
-        <a href="#courses" class="btn btn-primary btn-sm">Explore Courses</a>
+      <div class="header-right">
+        <div class="header-action">
+          <a href="#courses" class="btn btn-primary btn-sm">Explore Courses</a>
+        </div>
+        <!-- Mobile Navigation Hamburger Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer & Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-nav-header">
+      <a href="#" class="brand-logo" aria-label="FlipStuck Home">
+        <img src="Assets/logo-flip.svg" alt="FlipStuck" class="logo-img-mobile">
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-content">
+      <ul class="mobile-nav-list">
+        <li><a href="#courses" class="mobile-nav-link">Courses</a></li>
+        <li><a href="#categories" class="mobile-nav-link">Categories</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        <li><a href="#reviews" class="mobile-nav-link">Student Reviews</a></li>
+        <li><a href="#features" class="mobile-nav-link">Why Choose Us</a></li>
+      </ul>
+      <div class="mobile-nav-action">
+        <a href="#courses" class="btn btn-primary mobile-cta-btn">Explore Courses</a>
+      </div>
+    </div>
+  </aside>
 
   <main>
     <!-- ================= HERO SECTION ================= -->
@@ -81,8 +117,23 @@
           <span class="label-dot"></span>
           Trusted by learners and teams at
         </p>
-        <div class="partner-logos-container">
-          <img src="Assets/partner-logos.png" alt="Google, Microsoft, Amazon, Adobe, Udemy, Notion" class="partner-logos-img">
+      </div>
+      <div class="partners-marquee-wrapper" aria-label="Partner brand logos">
+        <div class="marquee-track">
+          <!-- Set 1 -->
+          <div class="partner-logo-item"><img src="Assets/partner-google.png" alt="Google" class="partner-img"></div>
+          <div class="partner-logo-item"><img src="Assets/partner-microsoft.png" alt="Microsoft" class="partner-img"></div>
+          <div class="partner-logo-item"><img src="Assets/partner-amazon.png" alt="Amazon" class="partner-img"></div>
+          <div class="partner-logo-item"><img src="Assets/partner-adobe.png" alt="Adobe" class="partner-img"></div>
+          <div class="partner-logo-item"><img src="Assets/partner-udemy.png" alt="Udemy" class="partner-img"></div>
+          <div class="partner-logo-item"><img src="Assets/partner-notion.png" alt="Notion" class="partner-img"></div>
+          <!-- Set 2 (Seamless loop duplicate) -->
+          <div class="partner-logo-item" aria-hidden="true"><img src="Assets/partner-google.png" alt="Google" class="partner-img"></div>
+          <div class="partner-logo-item" aria-hidden="true"><img src="Assets/partner-microsoft.png" alt="Microsoft" class="partner-img"></div>
+          <div class="partner-logo-item" aria-hidden="true"><img src="Assets/partner-amazon.png" alt="Amazon" class="partner-img"></div>
+          <div class="partner-logo-item" aria-hidden="true"><img src="Assets/partner-adobe.png" alt="Adobe" class="partner-img"></div>
+          <div class="partner-logo-item" aria-hidden="true"><img src="Assets/partner-udemy.png" alt="Udemy" class="partner-img"></div>
+          <div class="partner-logo-item" aria-hidden="true"><img src="Assets/partner-notion.png" alt="Notion" class="partner-img"></div>
         </div>
       </div>
     </section>
@@ -677,5 +728,52 @@
     </div>
   </footer>
 
+  <!-- Mobile Navigation Controller Script -->
+  <script>
+    (function() {
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const closeBtn = document.getElementById('mobileNavClose');
+      const drawer = document.getElementById('mobileNavDrawer');
+      const backdrop = document.getElementById('mobileNavBackdrop');
+      const navLinks = drawer ? drawer.querySelectorAll('.mobile-nav-link, .mobile-cta-btn') : [];
+
+      function openMenu() {
+        if (!drawer || !backdrop) return;
+        drawer.classList.add('is-open');
+        backdrop.classList.add('is-open');
+        if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        if (!drawer || !backdrop) return;
+        drawer.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      if (menuBtn) {
+        menuBtn.addEventListener('click', function() {
+          const isOpen = drawer.classList.contains('is-open');
+          if (isOpen) closeMenu();
+          else openMenu();
+        });
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+      if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
