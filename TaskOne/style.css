@@ -16,7 +16,7 @@
   --color-text-primary: #121212;
   --color-text-secondary: #5f6368;
   --color-text-muted: #80868b;
-  --color-bg-page: #ffffff;
+  --color-bg-page: #fdfdfd;
   --color-bg-subtle: #fcfcfc;
   --color-card-bg: #ffffff;
   
@@ -190,7 +190,7 @@ button, input {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.94);
+  background-color: rgba(253, 253, 253, 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
@@ -299,7 +299,7 @@ button, input {
   right: 0;
   width: min(320px, 86vw);
   height: 100vh;
-  background: #ffffff;
+  background: #fdfdfd;
   z-index: 999;
   box-shadow: -10px 0 35px rgba(0, 0, 0, 0.12);
   display: flex;
@@ -1182,7 +1182,7 @@ button, input {
    ========================================================================== */
 .site-footer {
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--color-bg-page);
   padding-top: 60px;
   overflow: hidden;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
@@ -1342,7 +1342,7 @@ button, input {
   padding-block: 22px;
   position: relative;
   z-index: 5;
-  background-color: #ffffff;
+  background-color: var(--color-bg-page);
 }
 
 .footer-bottom-inner {
