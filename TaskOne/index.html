@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Pure CSS Mobile Menu Toggle -->
+  <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle-checkbox" aria-hidden="true" hidden>
 
   <!-- ================= HEADER / NAVBAR ================= -->
   <header class="site-header">
@@ -28,28 +30,28 @@
           <a href="#courses" class="btn btn-primary btn-sm">Explore Courses</a>
         </div>
         <!-- Mobile Navigation Hamburger Button -->
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+        <label for="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
-        </button>
+        </label>
       </div>
     </div>
   </header>
 
   <!-- Mobile Navigation Drawer & Backdrop -->
-  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <label for="mobile-menu-toggle" class="mobile-nav-backdrop" id="mobileNavBackdrop"></label>
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
     <div class="mobile-nav-header">
       <a href="#" class="brand-logo" aria-label="FlipStuck Home">
         <img src="Assets/logo-flip.svg" alt="FlipStuck" class="logo-img-mobile">
       </a>
-      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+      <label for="mobile-menu-toggle" class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
-      </button>
+      </label>
     </div>
     <div class="mobile-nav-content">
       <ul class="mobile-nav-list">
@@ -728,52 +730,5 @@
     </div>
   </footer>
 
-  <!-- Mobile Navigation Controller Script -->
-  <script>
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuBtn');
-      const closeBtn = document.getElementById('mobileNavClose');
-      const drawer = document.getElementById('mobileNavDrawer');
-      const backdrop = document.getElementById('mobileNavBackdrop');
-      const navLinks = drawer ? drawer.querySelectorAll('.mobile-nav-link, .mobile-cta-btn') : [];
-
-      function openMenu() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.add('is-open');
-        backdrop.classList.add('is-open');
-        if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeMenu() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.remove('is-open');
-        backdrop.classList.remove('is-open');
-        if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-
-      if (menuBtn) {
-        menuBtn.addEventListener('click', function() {
-          const isOpen = drawer.classList.contains('is-open');
-          if (isOpen) closeMenu();
-          else openMenu();
-        });
-      }
-
-      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-      if (backdrop) backdrop.addEventListener('click', closeMenu);
-
-      navLinks.forEach(function(link) {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && drawer && drawer.classList.contains('is-open')) {
-          closeMenu();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
